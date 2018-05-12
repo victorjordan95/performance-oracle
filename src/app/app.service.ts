@@ -9,8 +9,11 @@ export class AppService {
 
   constructor(private _http: HttpClient) {
   }
-  getData() {
-    return this._http.get(this.baseURL);
+  getData1() {
+    return this._http.get(`https://api.myjson.com/bins/ewqly`);
+  }
+  getData2() {
+    return this._http.get(`https://api.myjson.com/bins/9ju5y`);
   }
 
 }

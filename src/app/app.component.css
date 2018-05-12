@@ -2,3 +2,36 @@
     margin: 16px auto;
     width: 80%;
 }
+
+.legend {
+    display: flex;
+    justify-content: center;
+}
+
+.legend ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+.legend li {
+    margin: 0 16px;
+}
+
+.legend-color {
+    width: 30px;
+    height: 15px;
+    position: absolute;
+}
+
+.legend-color--red {
+    background-color: #e95f82;
+}
+
+.legend-color--blue {
+    background-color: #52a3ec;
+}
+
+.name {
+    margin-left: 40px;
+}
