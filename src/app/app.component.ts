@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
 
     // lineChart
     public lineChartData: Array<any> = [];
-    public lineChartLabels: Array<any> = [];
+    public lineChartLabels: Array<any> = [1, 3, 5, 8, 10];
     public datas: Array<any> = [];
 
     public data;
@@ -25,16 +25,12 @@ export class AppComponent implements OnInit {
 
         data.forEach(element => {
             this.datas.push(element.duration);
-            this.lineChartLabels.push(element.id);
         });
 
-        // let chartLine = { data: this.datas, label: type};
         this.lineChartData.push(this.datas);
-        // this.lineChartLabels.push(type);
         console.log(this.lineChartData);
         console.log(this.lineChartLabels);
 
-        // {data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'},
     }
 
     constructor(private _appService: AppService) { }
