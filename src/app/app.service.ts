@@ -17,4 +17,8 @@ export class AppService {
     return this._http.get(`https://api.myjson.com/bins/11amye`);
   }
 
+  getData() {
+    return this._http.get(`https://api.jsonbin.io/b/5b2191aa8bdb2a3588e20724/1`);
+  }
+
 }

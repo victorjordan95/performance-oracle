@@ -1,21 +1,14 @@
 <main *ngIf="allDataFetched">
-	<h1>Análise de performance Oracle</h1>
-	<section class='chart'>
+  <h1>Análise de performance Oracle</h1>
 
-		<div class="chart-canvas">
-			<canvas baseChart [data]="lineChartData" [labels]="lineChartLabels" 
-				[options]="lineChartOptions" [chartType]="lineChartType">
-			</canvas>
-		</div>
-
-		<section>
-			<div class="legend">
-				<ul>
-					<li><span class="legend-color legend-color--red"></span> <span class="name">SERIALIZABLE</span></li>
-					<li><span class="legend-color legend-color--blue"></span> <span class="name">READ_UNCOMMITTED</span></li>
-				</ul>
-			</div>
-		</section>
-		
-	</section>
+  <div>
+    <div style="display: block">
+	  <canvas baseChart [datasets]="barChartData" 
+			[labels]="barChartLabels" 
+		  	[options]="barChartOptions" 
+		  	[legend]="barChartLegend"
+        	[chartType]="barChartType">
+      </canvas>
+    </div>
+  </div>
 </main>

@@ -10,7 +10,7 @@ import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 
 export class AppComponent implements OnInit {
     public allDataFetched;
-    public lineChartType: string = 'line';
+    public lineChartType = 'line';
 
     // lineChart
     public lineChartData: Array<any> = [];
@@ -19,36 +19,31 @@ export class AppComponent implements OnInit {
 
     public data;
     public data2;
+    public barChartOptions: any = {
+        scaleShowVerticalLines: false,
+        responsive: true
+    };
+    public barChartLabels: string[] = ['Análise'];
+    public barChartType = 'bar';
+    public barChartLegend = true;
+
+    public barChartData = [];
 
     public populate(data) {
-        this.datas = [];
 
-        data.forEach(element => {
-            this.datas.push(element.duration);
-        });
-
-        this.lineChartData.push(this.datas);
-        console.log(this.lineChartData);
-        console.log(this.lineChartLabels);
+        data.forEach(element => this.barChartData.push({'data': [element.valor], 'label': element.nome}));
 
     }
 
     constructor(private _appService: AppService) { }
 
     ngOnInit(): void {
-        this._appService.getData1().subscribe(
+        this._appService.getData().subscribe(
             data => {
                 this.data = data;
+                console.log(this.data);
+                this.allDataFetched = true;
                 this.populate(this.data);
-                this._appService.getData2().subscribe(
-                    data2 => {
-                        this.data2 = data2;
-                        this.populate(this.data2);
-                        this.allDataFetched = true;
-                    },
-                    err => console.log(err)
-                );
-
             },
             err => console.log(err)
         );
